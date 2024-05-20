@@ -10,7 +10,7 @@ interface TeamProps {
   isWinner: boolean;
 }
 
-interface MatchCardProps {
+export interface MatchCardProps {
   homeTeam: TeamProps;
   awayTeam: TeamProps;
   venue?: string;
@@ -68,10 +68,10 @@ export default function MatchCard({
     <div className="w-[400px] border px-6 py-5 rounded-xl shadow-md">
       <div className="flex gap-2">
         <Text size="xs">
-          {dayjs.tz(startDate, "").format("DD/MM/YYYY HH:mm")}
+          {dayjs.tz(startDate, "").format("DD/MM/YYYY HH:mm")} UTC
         </Text>
         <Text size="xs">&#8226;</Text>
-        <Text size="xs">{venue}</Text>
+        <Text size="xs">{truncateString(venue || "-", 40)}</Text>
       </div>
       <Spacer size={28} />
       <div className="grid grid-cols-2 gap-8">

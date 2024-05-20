@@ -1,5 +1,5 @@
-import { MatchCard } from "@/components/molecules";
-import { StandingsTable } from "@/components/organisms";
+import { Spacer } from "@/components/atoms";
+import { LatestLeagueMatch, StandingsTable } from "@/components/organisms";
 
 export default function Home() {
   return (
@@ -7,24 +7,10 @@ export default function Home() {
       <div>
         <StandingsTable />
       </div>
-      <MatchCard
-        startDate={new Date()}
-        venue="STF"
-        homeTeam={{
-          name: "Yokohama F. Marinosss",
-          isWinner: false,
-          score: 0,
-          logo: "",
-        }}
-        awayTeam={{
-          name: "Newcastle",
-          isWinner: true,
-          score: 1,
-          logo: "",
-        }}
-        elapsedTime={45}
-        status="Half Time"
-      />
+      <Spacer size={48} />
+      <div>
+        <LatestLeagueMatch />
+      </div>
     </main>
   );
 }

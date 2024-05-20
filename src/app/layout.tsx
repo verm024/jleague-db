@@ -9,7 +9,7 @@ import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 dayjs.extend(utc);
 dayjs.extend(timezone);
-dayjs.tz.setDefault("UTC")
+dayjs.tz.setDefault("UTC");
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +28,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         <Spacer size={48} />
-        {children}
+        <div className="container mx-auto">{children}</div>
         <Spacer size={48} />
       </body>
     </html>
