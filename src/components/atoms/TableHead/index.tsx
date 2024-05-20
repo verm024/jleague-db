@@ -1,5 +1,5 @@
-"use client";
-
+import { colorMapper } from "@/constants/color";
+import { clsx } from "clsx";
 import React, { useMemo } from "react";
 
 export interface HeadItemProps {
@@ -19,15 +19,20 @@ export default function TableHead({
   roundedTopRight,
 }: FullThProps) {
   const computedThClassname: string = useMemo(() => {
-    const BASE_CLASS = "w-fit py-2 px-3 bg-gray-200 font-medium text-base";
-    const classess: string[] = [BASE_CLASS];
-    if (roundedTopLeft) classess.push("rounded-tl-lg");
-    if (roundedTopRight) classess.push("rounded-tr-lg");
+    const baseClass = `w-fit py-2 px-3 font-medium text-base`;
+    const classes: string[] = [baseClass];
+    if (roundedTopLeft) classes.push("rounded-tl-lg");
+    if (roundedTopRight) classes.push("rounded-tr-lg");
 
-    return classess.join(" ");
+    return classes.join(" ");
   }, [roundedTopLeft, roundedTopRight]);
 
-  console.log(computedThClassname);
-
-  return <th className={computedThClassname}>{children}</th>;
+  return (
+    <th
+      className={clsx(computedThClassname)}
+      style={{ backgroundColor: colorMapper.grey }}
+    >
+      {children}
+    </th>
+  );
 }
