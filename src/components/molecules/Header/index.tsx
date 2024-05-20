@@ -12,7 +12,7 @@ export default function Header() {
     >
       <Link href="/">
         <Text color={colorMapper.white as color} size="xl" fontWeight="bold">
-          JLeague DB
+          J. League DB
         </Text>
       </Link>
     </header>
