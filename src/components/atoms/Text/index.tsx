@@ -1,15 +1,15 @@
-import { color } from "@/constants/color";
-import clsx from "clsx";
+import { color } from '@/constants/color';
+import clsx from 'clsx';
 
 type fontWeightType =
-  | "extralight"
-  | "light"
-  | "normal"
-  | "medium"
-  | "semibold"
-  | "bold";
+  | 'extralight'
+  | 'light'
+  | 'normal'
+  | 'medium'
+  | 'semibold'
+  | 'bold';
 
-type fontSizeType = "xs" | "sm" | "base" | "lg" | "xl" | "2xl";
+type fontSizeType = 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl';
 
 export interface TextProps {
   children: React.ReactNode;

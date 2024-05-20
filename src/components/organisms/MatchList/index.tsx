@@ -1,5 +1,5 @@
-import { Text } from "@/components/atoms";
-import MatchCard, { MatchCardProps } from "@/components/molecules/MatchCard";
+import { Text } from '@/components/atoms';
+import MatchCard, { MatchCardProps } from '@/components/molecules/MatchCard';
 
 interface MatchListProps {
   matches: MatchCardProps[];

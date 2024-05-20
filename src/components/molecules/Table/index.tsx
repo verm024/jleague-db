@@ -1,6 +1,6 @@
-import { TableHead, TableData } from "@/components/atoms";
-import { DataItemProps } from "@/components/atoms/TableData";
-import { HeadItemProps } from "@/components/atoms/TableHead";
+import { TableHead, TableData } from '@/components/atoms';
+import { DataItemProps } from '@/components/atoms/TableData';
+import { HeadItemProps } from '@/components/atoms/TableHead';
 
 interface RowProps {
   data: DataItemProps[];

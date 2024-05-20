@@ -1,13 +1,13 @@
-"use server";
+'use server';
 
-import { Spacer, Text } from "@/components/atoms";
-import { Table } from "@/components/molecules";
+import { Spacer, Text } from '@/components/atoms';
+import { Table } from '@/components/molecules';
 import {
   FOOTBALL_API_ENDPOINTS,
   FOOTBALL_API_JLEAGUE_LEAGUE_ID,
-} from "@/constants/network";
-import { customGetFootballAPI } from "@/networks/network";
-import Image from "next/image";
+} from '@/constants/network';
+import { customGetFootballAPI } from '@/networks/network';
+import Image from 'next/image';
 
 async function fetchStandings() {
   const result = await customGetFootballAPI(
@@ -19,18 +19,18 @@ async function fetchStandings() {
   const resultStandings = result?.response?.[0]?.league?.standings?.[0] || [];
   const mappedResultStandings = resultStandings.map((rank: any) => ({
     data: [
-      { children: rank.rank || "-" },
+      { children: rank.rank || '-' },
       {
         children: (
           <div className="flex items-center">
             <Image
-              src={rank.team?.logo || ""}
+              src={rank.team?.logo || ''}
               alt="club logo"
               className="pr-2"
               width={32}
               height={32}
             />
-            <Text>{rank.team?.name || "-"}</Text>
+            <Text>{rank.team?.name || '-'}</Text>
           </div>
         ),
       },
@@ -60,16 +60,16 @@ export default async function StandingsTable() {
       <div className="w-full flex justify-center">
         <Table
           heads={[
-            { children: "Rank" },
-            { children: "Club" },
-            { children: "MP" },
-            { children: "W" },
-            { children: "D" },
-            { children: "L" },
-            { children: "GF" },
-            { children: "GA" },
-            { children: "GD" },
-            { children: "Point" },
+            { children: 'Rank' },
+            { children: 'Club' },
+            { children: 'MP' },
+            { children: 'W' },
+            { children: 'D' },
+            { children: 'L' },
+            { children: 'GF' },
+            { children: 'GA' },
+            { children: 'GD' },
+            { children: 'Point' },
           ]}
           rows={standings}
         ></Table>

@@ -1,7 +1,7 @@
-import { Text } from "@/components/atoms";
-import { color, colorMapper } from "@/constants/color";
-import clsx from "clsx";
-import Link from "next/link";
+import { Text } from '@/components/atoms';
+import { color, colorMapper } from '@/constants/color';
+import clsx from 'clsx';
+import Link from 'next/link';
 
 export default function Header() {
   return (

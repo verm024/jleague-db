@@ -1,21 +1,21 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { Header } from "@/components/molecules";
-import { Spacer } from "@/components/atoms";
-import dayjs from "dayjs";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { Header } from '@/components/molecules';
+import { Spacer } from '@/components/atoms';
+import dayjs from 'dayjs';
 
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
 dayjs.extend(utc);
 dayjs.extend(timezone);
-dayjs.tz.setDefault("UTC");
+dayjs.tz.setDefault('UTC');
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "J. League DB",
-  description: "J1 League Database",
+  title: 'J. League DB',
+  description: 'J1 League Database',
 };
 
 export default function RootLayout({

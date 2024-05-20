@@ -1,6 +1,6 @@
-import { colorMapper } from "@/constants/color";
-import { clsx } from "clsx";
-import React, { useMemo } from "react";
+import { colorMapper } from '@/constants/color';
+import { clsx } from 'clsx';
+import React, { useMemo } from 'react';
 
 export interface HeadItemProps {
   children: React.ReactNode;
@@ -21,10 +21,10 @@ export default function TableHead({
   const computedThClassname: string = useMemo(() => {
     const baseClass = `w-fit py-2 px-3 font-medium text-base`;
     const classes: string[] = [baseClass];
-    if (roundedTopLeft) classes.push("rounded-tl-lg");
-    if (roundedTopRight) classes.push("rounded-tr-lg");
+    if (roundedTopLeft) classes.push('rounded-tl-lg');
+    if (roundedTopRight) classes.push('rounded-tr-lg');
 
-    return classes.join(" ");
+    return classes.join(' ');
   }, [roundedTopLeft, roundedTopRight]);
 
   return (

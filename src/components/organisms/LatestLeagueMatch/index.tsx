@@ -1,12 +1,12 @@
-"use server";
+'use server';
 
 import {
   FOOTBALL_API_ENDPOINTS,
   FOOTBALL_API_JLEAGUE_LEAGUE_ID,
-} from "@/constants/network";
-import { customGetFootballAPI } from "@/networks/network";
-import MatchList from "../MatchList";
-import { Spacer, Text } from "@/components/atoms";
+} from '@/constants/network';
+import { customGetFootballAPI } from '@/networks/network';
+import MatchList from '../MatchList';
+import { Spacer, Text } from '@/components/atoms';
 
 async function fetchFixtures() {
   const result = await customGetFootballAPI(
@@ -30,10 +30,10 @@ async function fetchFixtures() {
       score: fixture?.goals?.away || 0,
       isWinner: fixture?.teams?.away?.winner,
     },
-    venue: fixture?.fixture?.venue?.name || "",
+    venue: fixture?.fixture?.venue?.name || '',
     startDate: fixture?.fixture?.date ? new Date(fixture?.fixture?.date) : null,
     elapsedTime: fixture?.fixture?.status?.elapsed || 0,
-    status: fixture?.fixture?.status?.long || "Not started",
+    status: fixture?.fixture?.status?.long || 'Not started',
   }));
 
   return mapped;

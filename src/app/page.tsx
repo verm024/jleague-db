@@ -1,5 +1,5 @@
-import { Spacer } from "@/components/atoms";
-import { LatestLeagueMatch, StandingsTable } from "@/components/organisms";
+import { Spacer } from '@/components/atoms';
+import { LatestLeagueMatch, StandingsTable } from '@/components/organisms';
 
 export default function Home() {
   return (

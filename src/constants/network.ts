@@ -1,5 +1,5 @@
 export const FOOTBALL_API_BASE_URL =
-  "https://api-football-v1.p.rapidapi.com/v3";
+  'https://api-football-v1.p.rapidapi.com/v3';
 
 export const FOOTBALL_API_JLEAGUE_LEAGUE_ID = 98;
 
