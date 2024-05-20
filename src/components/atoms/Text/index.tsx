@@ -26,37 +26,10 @@ export default function Text({
   size,
   className,
 }: TextProps) {
-  const getFontWeight = (fw?: fontWeightType) => {
-    if (!fw) {
-      return "font-normal";
-    }
-    return `font-${fw}`;
-  };
-
-  // TODO: Tailwind does not allow assigning class using string formatting, find a better way than this
-  const getFontSize = (fs?: fontSizeType) => {
-    switch (fs) {
-      case "xs":
-        return "text-xs";
-      case "sm":
-        return "text-sm";
-      case "base":
-        return "text-base";
-      case "lg":
-        return "text-lg";
-      case "xl":
-        return "text-xl";
-      case "2xl":
-        return "text-2xl";
-      default:
-        return "text-base";
-    }
-  };
-
   return (
     <p
       style={{ color }}
-      className={clsx(getFontWeight(fontWeight), getFontSize(size), className)}
+      className={clsx(`font-${fontWeight}`, `text-${size}`, className)}
     >
       {children}
     </p>

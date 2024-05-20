@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/molecules";
+import { Spacer } from "@/components/atoms";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Header />
+        <Spacer size={48} />
+        {children}
+        <Spacer size={48} />
+      </body>
     </html>
   );
 }

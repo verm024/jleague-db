@@ -1,17 +1,12 @@
 import { Text } from "@/components/atoms";
-import { Table } from "@/components/molecules";
+import { Header, Table } from "@/components/molecules";
+import { StandingsTable } from "@/components/organisms";
 
 export default function Home() {
   return (
     <main>
       <div>
-        <Table
-          heads={[{ children: "No." }]}
-          rows={[{ data: [{ children: "1." }], key: "row_1" }]}
-        />
-        <Text color="red" fontWeight="medium" size="2xl">
-          Test
-        </Text>
+        <StandingsTable />
       </div>
     </main>
   );

@@ -1,0 +1,1 @@
+export {default as StandingsTable} from "@/components/organisms/StandingsTable"

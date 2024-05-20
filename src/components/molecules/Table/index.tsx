@@ -14,33 +14,31 @@ interface TableProps {
 
 export default function Table({ heads, rows }: TableProps) {
   return (
-    <div className="w-full">
-      <table className="">
-        <thead>
-          <tr>
-            {heads.map((head, index) => (
-              <TableHead
-                key={index}
-                roundedTopLeft={index === 0}
-                roundedTopRight={index === heads.length - 1}
-              >
-                {head.children}
-              </TableHead>
+    <table className="">
+      <thead>
+        <tr>
+          {heads.map((head, index) => (
+            <TableHead
+              key={index}
+              roundedTopLeft={index === 0}
+              roundedTopRight={index === heads.length - 1}
+            >
+              {head.children}
+            </TableHead>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row, index) => (
+          <tr key={row.key || index}>
+            {row.data.map((d, dindex) => (
+              <TableData key={`row-${row.key || index}-data-${dindex}`}>
+                {d.children}
+              </TableData>
             ))}
           </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, index) => (
-            <tr key={row.key || index}>
-              {row.data.map((d, dindex) => (
-                <TableData key={`row-${row.key || index}-data-${dindex}`}>
-                  {d.children}
-                </TableData>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
   );
 }
