@@ -1,5 +1,10 @@
 import { Spacer } from '@/components/atoms';
-import { TeamInfoWrapper, TeamSquadTable } from '@/components/organisms';
+import {
+  LeagueMatchList,
+  TeamInfoWrapper,
+  TeamSquadTable,
+} from '@/components/organisms';
+import { FOOTBALL_API_JLEAGUE_LEAGUE_ID } from '@/constants/network';
 import { redirect } from 'next/navigation';
 
 export default function TeamDetail({ params }: { params: { id: string } }) {
@@ -14,6 +19,13 @@ export default function TeamDetail({ params }: { params: { id: string } }) {
       <Spacer size={48} />
       <div>
         <TeamSquadTable teamId={params.id} />
+      </div>
+      <Spacer size={48} />
+      <div>
+        <LeagueMatchList
+          teamId={params.id}
+          leagueId={FOOTBALL_API_JLEAGUE_LEAGUE_ID}
+        />
       </div>
     </div>
   );

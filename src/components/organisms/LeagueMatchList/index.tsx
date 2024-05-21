@@ -7,7 +7,7 @@ import { Spacer, Text } from '@/components/atoms';
 
 interface LeagueMatchListProps {
   leagueId?: number;
-  teamId?: number;
+  teamId?: number | string;
   title?: string;
   maxLastCount?: number;
   maxNextCount?: number;
@@ -15,7 +15,7 @@ interface LeagueMatchListProps {
 
 async function fetchFixtures(
   leagueId?: number,
-  teamId?: number,
+  teamId?: number | string,
   maxLastCount?: number,
   maxNextCount?: number
 ) {
