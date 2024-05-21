@@ -8,6 +8,7 @@ import {
 } from '@/constants/network';
 import { customGetFootballAPI } from '@/networks/network';
 import Image from 'next/image';
+import Link from 'next/link';
 
 async function fetchStandings() {
   const result = await customGetFootballAPI(
@@ -30,7 +31,9 @@ async function fetchStandings() {
               width={32}
               height={32}
             />
-            <Text>{rank.team?.name || '-'}</Text>
+            <Link href={`/team/${rank.team.id}`}>
+              <Text className="underline">{rank.team?.name || '-'}</Text>
+            </Link>
           </div>
         ),
       },

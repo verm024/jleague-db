@@ -19,7 +19,7 @@ export default function TableHead({
   roundedTopRight,
 }: FullThProps) {
   const computedThClassname: string = useMemo(() => {
-    const baseClass = `w-fit py-2 px-3 font-medium text-base`;
+    const baseClass = `w-fit py-2 px-3 font-medium text-base sticky top-0`;
     const classes: string[] = [baseClass];
     if (roundedTopLeft) classes.push('rounded-tl-lg');
     if (roundedTopRight) classes.push('rounded-tr-lg');

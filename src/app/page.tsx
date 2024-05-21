@@ -1,5 +1,6 @@
 import { Spacer } from '@/components/atoms';
-import { LatestLeagueMatch, StandingsTable } from '@/components/organisms';
+import { LeagueMatchList, StandingsTable } from '@/components/organisms';
+import { FOOTBALL_API_JLEAGUE_LEAGUE_ID } from '@/constants/network';
 
 export default function Home() {
   return (
@@ -9,7 +10,7 @@ export default function Home() {
       </div>
       <Spacer size={48} />
       <div>
-        <LatestLeagueMatch />
+        <LeagueMatchList leagueId={FOOTBALL_API_JLEAGUE_LEAGUE_ID} />
       </div>
     </main>
   );

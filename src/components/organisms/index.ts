@@ -1,3 +1,5 @@
 export { default as StandingsTable } from '@/components/organisms/StandingsTable';
-export { default as LatestLeagueMatch } from '@/components/organisms/LatestLeagueMatch';
+export { default as LeagueMatchList } from '@/components/organisms/LeagueMatchList';
 export { default as MatchList } from '@/components/organisms/MatchList';
+export { default as TeamInfoWrapper } from '@/components/organisms/TeamInfoWrapper';
+export { default as TeamSquadTable } from '@/components/organisms/TeamSquadTable';

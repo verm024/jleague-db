@@ -1,17 +1,31 @@
 'use server';
 
-import {
-  FOOTBALL_API_ENDPOINTS,
-  FOOTBALL_API_JLEAGUE_LEAGUE_ID,
-} from '@/constants/network';
+import { FOOTBALL_API_ENDPOINTS } from '@/constants/network';
 import { customGetFootballAPI } from '@/networks/network';
 import MatchList from '../MatchList';
 import { Spacer, Text } from '@/components/atoms';
 
-async function fetchFixtures() {
+interface LeagueMatchListProps {
+  leagueId?: number;
+  teamId?: number | string;
+  title?: string;
+  maxLastCount?: number;
+  maxNextCount?: number;
+}
+
+async function fetchFixtures(
+  leagueId?: number,
+  teamId?: number | string,
+  maxLastCount?: number,
+  maxNextCount?: number
+) {
   const result = await customGetFootballAPI(
     FOOTBALL_API_ENDPOINTS.get.getLeagueFixtures(
-      FOOTBALL_API_JLEAGUE_LEAGUE_ID
+      leagueId,
+      teamId,
+      undefined,
+      maxLastCount,
+      maxNextCount
     ),
     { next: { revalidate: 60 * 60 * 24 } }
   );
@@ -39,12 +53,23 @@ async function fetchFixtures() {
   return mapped;
 }
 
-export default async function LatestLeagueMatch() {
-  const result = await fetchFixtures();
+export default async function LeagueMatchList({
+  title = 'Latest Fixtures',
+  leagueId,
+  teamId,
+  maxLastCount = 10,
+  maxNextCount = 10,
+}: LeagueMatchListProps) {
+  const result = await fetchFixtures(
+    leagueId,
+    teamId,
+    maxLastCount,
+    maxNextCount
+  );
   return (
     <div>
       <Text className="text-center" size="xl" fontWeight="semibold">
-        Latest Fixtures
+        {title}
       </Text>
       <Spacer size={32} />
       <MatchList matches={result} />
