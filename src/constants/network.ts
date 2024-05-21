@@ -10,9 +10,24 @@ export const FOOTBALL_API_ENDPOINTS = {
       season: number = new Date().getFullYear()
     ) => `/standings?league=${leagueId}&season=${season}`,
     getLeagueFixtures: (
-      leagueId: number | string,
+      leagueId?: number | string,
+      teamId?: number | string,
       season: number = new Date().getFullYear(),
-      maxLastCount: number = 10
-    ) => `/fixtures?league=${leagueId}&season=${season}&last=${maxLastCount}`,
+      maxLastCount: number = 10,
+      maxNextCount: number = 10
+    ) => {
+      let nextLastQuery = '';
+      if (maxLastCount) {
+        nextLastQuery = `&last=${maxLastCount}`;
+      } else if (maxNextCount) {
+        nextLastQuery = `&next=${maxNextCount}`;
+      } else {
+        nextLastQuery = `&last=10`;
+      }
+      return `/fixtures?league=${leagueId}${teamId ? `&team=${teamId}` : ''}&season=${season}${nextLastQuery}`;
+    },
+    getTeamInformation: (teamId: number | string) => `/teams?id=${teamId}`,
+    getTeamStatistic: (teamId: number | string, leagueId: number | string) =>
+      `/teams/statistics?team=${teamId}&league=${leagueId}&season=${new Date().getFullYear()}`,
   },
 };
