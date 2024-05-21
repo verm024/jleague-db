@@ -10,11 +10,12 @@ interface RowProps {
 interface TableProps {
   heads: HeadItemProps[];
   rows: RowProps[];
+  maxHeight?: number;
 }
 
-export default function Table({ heads, rows }: TableProps) {
+export default function Table({ heads, rows, maxHeight }: TableProps) {
   return (
-    <table className="">
+    <table style={{ maxHeight }} className="overflow-y-auto block">
       <thead>
         <tr>
           {heads.map((head, index) => (

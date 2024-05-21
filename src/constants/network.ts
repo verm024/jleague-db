@@ -29,5 +29,7 @@ export const FOOTBALL_API_ENDPOINTS = {
     getTeamInformation: (teamId: number | string) => `/teams?id=${teamId}`,
     getTeamStatistic: (teamId: number | string, leagueId: number | string) =>
       `/teams/statistics?team=${teamId}&league=${leagueId}&season=${new Date().getFullYear()}`,
+    getSquadPlayers: (teamId: number | string) =>
+      `/players?team=${teamId}&season=${new Date().getFullYear()}`,
   },
 };
